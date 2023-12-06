@@ -31,7 +31,6 @@ def get_next_empty_cell(board):
                 return i, j
     return None
 
-# حساب القيمة التقديرية للحالة باستخدام خوارزمية A*
 def heuristic(board):
     empty_cell = get_next_empty_cell(board)
     if empty_cell is None:
@@ -39,13 +38,14 @@ def heuristic(board):
     else:
         return 1
 
-# خوارزمية A*
 def astar(board):
             
     open_list = [(heuristic(board), board)]
+    print(open_list)
     closed_list = set()
 
     while open_list:
+
         current_score, current_board = heapq.heappop(open_list)
         closed_list.add(tuple(map(tuple, current_board)))
 
@@ -63,7 +63,7 @@ def astar(board):
 
     return None
 
-# اللعبة الرئيسية
+
 def play_game():
     board = [
         [1, 0, 0, 0, 0, 0, 0, 0, 0],
